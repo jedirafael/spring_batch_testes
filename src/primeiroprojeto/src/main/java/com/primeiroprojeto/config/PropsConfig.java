@@ -11,7 +11,10 @@ public class PropsConfig {
     public PropertySourcesPlaceholderConfigurer config() {
         PropertySourcesPlaceholderConfigurer configure = new PropertySourcesPlaceholderConfigurer();
         configure.setLocation(new FileSystemResource("E:\\WorkSpace\\Estudos\\spring bacth" +
-                "\\meu codigo\\src\\primeiroprojeto\\config\\application.properties"));
+                "\\src\\spring_batch_testes" +
+                "\\src\\primeiroprojeto" +
+                "\\config" +
+                "\\application.properties"));
         return configure;
     }
 }

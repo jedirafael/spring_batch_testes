@@ -9,18 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@EnableBatchProcessing
-//@Configuration
-public class ParImparBatchConfig {
+@EnableBatchProcessing
+@Configuration
+public class ArquivoLarguraFixaJobConfig {
+
     @Autowired
-    private JobBuilderFactory jobBuilderFactory;
-
-
+    public JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job imprimeParImparJob(Step imprimeParImparStep) {
-        return jobBuilderFactory.get("imprimeParImparJob").start(imprimeParImparStep)
-                .incrementer(new RunIdIncrementer()).build();
+    public Job arquivoLarguraFixaJob(Step leituraArquivoLarguraFixaStep) {
+        return jobBuilderFactory
+                .get("arquivoLarguraFixaJob")
+                .start(leituraArquivoLarguraFixaStep)
+                .incrementer(new RunIdIncrementer())
+                .build();
     }
 
 }
