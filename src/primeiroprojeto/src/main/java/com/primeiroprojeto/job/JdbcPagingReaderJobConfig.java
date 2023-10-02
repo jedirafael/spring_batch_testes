@@ -9,18 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@EnableBatchProcessing
-//@Configuration
-public class ArquivoLarguraFixaJobConfig {
+@EnableBatchProcessing
+@Configuration
+public class JdbcPagingReaderJobConfig {
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job arquivoLarguraFixaJob(Step leituraArquivoLarguraFixaStep) {
+    public Job jdbcPagingReaderJob(Step jdbcPagingReaderStep) {
         return jobBuilderFactory
-                .get("arquivoLarguraFixaJob")
-                .start(leituraArquivoLarguraFixaStep)
+                .get("jdbcPagingReaderJob")
+                .start(jdbcPagingReaderStep)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }
