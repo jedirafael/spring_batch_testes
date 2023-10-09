@@ -9,18 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@EnableBatchProcessing
-//@Configuration
-public class JdbcCursorReaderJobConfig {
-    @Autowired
-    public JobBuilderFactory jobBuilderFactory;
-
-    @Bean
-    public Job jdbcCursorReaderJob(Step jdbcCursorReaderStep) {
-        return jobBuilderFactory
-                .get("jdbcCursorReaderJob")
-                .start(jdbcCursorReaderStep)
-                .incrementer(new RunIdIncrementer())
-                .build();
-    }
+@EnableBatchProcessing
+@Configuration
+public class ProcessadorClassifierJobConfig {
+	@Autowired
+	public JobBuilderFactory jobBuilderFactory;
+	
+	@Bean
+	public Job processadorClassifierJob(Step processadorClassifierStep) {
+		return jobBuilderFactory
+				.get("processadorClassifierJob")
+				.start(processadorClassifierStep)
+				.incrementer(new RunIdIncrementer())
+				.build();
+	}
 }

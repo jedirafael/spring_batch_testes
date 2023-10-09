@@ -1,9 +1,23 @@
 package com.primeiroprojeto.dominio;
 
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Cliente {
+	@NotNull
+	@Size(min = 1, max = 100)
+	@Pattern(regexp = "[a-zA-Z\\s]+",message = "Nome deve ser alfabético")
 	private String nome;
+
 	private String sobrenome;
+	@NotNull
+	@Range(min = 18 , max = 200)
 	private String idade;
+	@NotNull
+	@Size(min = 18, max = 50)
 	private String email;
 
 	public String getNome() {
